@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">STUDY SMARTER</p>
+      <h1>My Student Planner</h1>
+      <p class="subtitle">Organize your day, track your tasks, and reach your goals.</p>
+    </div>
+    <div class="date-card">
+      <span>Today's date</span>
+      <strong id="today"></strong>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>Total tasks</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>Completed</span><strong id="doneCount">0</strong></article>
+      <article class="stat-card"><span>Remaining</span><strong id="remainingCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR WORK</p><h2>Task list</h2></div>
+        <span class="small-note">Your tasks are saved in this browser</span>
+      </div>
+      <form id="taskForm" class="task-form">
+        <input id="taskInput" type="text" placeholder="What do you need to study?" maxlength="100" required>
+        <select id="subjectInput" aria-label="Subject">
+          <option value="General">General</option>
+          <option>Mathematics</option><option>Science</option><option>English</option>
+          <option>Computer Science</option><option>Social Studies</option>
+        </select>
+        <input id="dueInput" type="date" aria-label="Due date">
+        <button type="submit">+ Add task</button>
+      </form>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="active">Pending</button>
+        <button class="filter" data-filter="done">Completed</button>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyState" class="empty-state">No tasks yet. Add your first task above!</p>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel note-panel">
+        <p class="eyebrow">QUICK NOTES</p><h2>Study notes</h2>
+        <textarea id="notes" placeholder="Write reminders, ideas, or important points here..."></textarea>
+        <p class="small-note">Notes are saved automatically in this browser.</p>
+      </article>
+      <article class="panel goal-panel">
+        <p class="eyebrow">YOUR NEXT STEP</p><h2>Daily study goal</h2>
+        <label for="goalInput">How many tasks do you want to finish today?</label>
+        <div class="goal-row"><input id="goalInput" type="number" min="1" max="30" value="3"><span>tasks</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <p id="goalText" class="small-note">0 of 3 tasks completed</p>
+      </article>
+    </section>
+  </main>
+  <footer>Made for students • Stay focused and keep learning!</footer>
+  <script src="script.js"></script>
+</body>
+</html>
